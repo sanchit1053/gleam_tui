@@ -66,7 +66,7 @@ The function takes in a state and a message and returns the new state of the app
 
 #### Events
 
-Events are a list of functions that return a Subject from the `gloom_erlang` library and a clean up function
+Events are a list of functions that return a Subject from the `gleam_erlang` library and a clean up function
 
 ```gleam
 fn event() -> #(process.Subject(Message), fn() -> Nil){
