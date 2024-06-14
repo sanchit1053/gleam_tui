@@ -87,4 +87,4 @@ Basic Examples of a infinite spinner and a list is available in the `examples` f
 
 ----
 
-Further documentation can be found at <https://hexdocs.pm/tui>.
+Further documentation can be found at <https://hexdocs.pm/gtui>.
