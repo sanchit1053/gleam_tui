@@ -1,12 +1,12 @@
-# tui
+# gtui
 
-[![Package Version](https://img.shields.io/hexpm/v/tui)](https://hex.pm/packages/tui)
-[![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/tui/)
+[![Package Version](https://img.shields.io/hexpm/v/gtui)](https://hex.pm/packages/gtui)
+[![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/gtui/)
 
 This is inspired from TUI packages like [bubbleTea](https://github.com/charmbracelet/bubbletea)
 ## To Add
 ```sh
-gleam add gleam_tui
+gleam add gtui
 ```
 
 ## Usage

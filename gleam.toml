@@ -6,8 +6,8 @@ gleam = ">= 0.32.0"
 # your project to the Hex package manager.
 #
 description = "A TUI library for gleam"
-# licences = ["Apache-2.0"]
-repository = { type = "github", user = "sanchit1053", repo = "project" }
+licences = ["MIT"]
+repository = { type = "github", user = "sanchit1053", repo = "gleam_tui" }
 # links = [{ title = "Website", href = "https://gleam.run" }]
 #
 # For a full reference of all the available options, you can have a look at
