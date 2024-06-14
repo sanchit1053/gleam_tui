@@ -6,25 +6,38 @@ import gleam/string
 
 const esc_code = "\u{001b}["
 
+type Renderable(state) =
+  fn(state) -> String
+
+type Updateable(state, message) =
+  fn(state, message) -> #(state, Bool)
+
+type Event(message) =
+  fn() -> #(process.Subject(message), fn() -> Nil)
+
 pub opaque type Application(state, message) {
   Application(
     state: state,
-    render: fn(state) -> String,
-    update: fn(state, message) -> #(state, Bool),
-    events: List(fn() -> #(process.Subject(message), fn() -> Nil)),
+    render: Renderable(state),
+    update: Updateable(state, message),
+    events: List(Event(message)),
     alt_screen: Bool,
   )
 }
 
+
+
+/// Constructor to create a new Application
 pub fn new_application(
   state: state,
-  render: fn(state) -> String,
-  update: fn(state, message) -> #(state, Bool),
-  events: List(fn() -> #(process.Subject(message), fn() -> Nil)),
+  render: Renderable(state),
+  update: Updateable(state, message),
+  events: List(Event(message)),
 ) -> Application(state, message) {
   Application(state, render, update, events, False)
 }
 
+/// Make the application work on an alternative screen
 pub fn on_alt_screen(
   appl: Application(state, message),
 ) -> Application(state, message) {
@@ -36,7 +49,7 @@ fn clear_lines(num) {
   io.print("\r")
 }
 
-pub fn show(
+fn show(
   application: Application(state, message),
   state: state,
   previous_lines: Int,
@@ -47,6 +60,7 @@ pub fn show(
   list.length(string.split(content, "\n"))
 }
 
+/// Start running an application
 pub fn run(application: Application(state, message)) -> Nil {
   let subjects =
     application.events
@@ -83,6 +97,7 @@ fn do_run(
   case running {
     True -> do_run(application, new_state, selector, cleanup, lines)
     False -> {
+      show(application, new_state, previous_lines - 1)
       case application.alt_screen {
         True -> io.print(esc_code <> "?1049l")
         False -> Nil

@@ -1,13 +1,13 @@
-name = "tui"
-version = "1.0.0"
+name = "gtui"
+version = "0.1.0"
 gleam = ">= 0.32.0"
 
 # Fill out these fields if you intend to generate HTML documentation or publish
 # your project to the Hex package manager.
 #
-# description = ""
+description = "A TUI library for gleam"
 # licences = ["Apache-2.0"]
-# repository = { type = "github", user = "username", repo = "project" }
+repository = { type = "github", user = "sanchit1053", repo = "project" }
 # links = [{ title = "Website", href = "https://gleam.run" }]
 #
 # For a full reference of all the available options, you can have a look at
